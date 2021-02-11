@@ -52,7 +52,7 @@ public class Barometro {
     @FXML
     private void nivelar(){
         c.setNivel(Integer.parseInt(nivel.getText()));
-        c.cambiarImagen(icono,TORMENTA);
+        c.predecir(icono,Integer.parseInt(valor.getText()));
     }
     @FXML
     private void onChangeListener(){

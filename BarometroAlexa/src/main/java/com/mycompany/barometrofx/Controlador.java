@@ -48,21 +48,16 @@ public class Controlador {
             lecturas.setText(lecturas.getText()+medidas.get(i).fecha.toString()+" (nivel del mar:"+medidas.get(i).nivel+")"+"= "+medidas.get(i).valor+"\n");
         }
     }
-    public void cambiarImagen(ImageView frame,int tipo){
+    public void predecir(ImageView frame,int valor){
         String path= "src\\main\\resources\\iconos\\";
-        switch(tipo){
-            case SOLEADO:
-                path=path+"soleado.jpg";
-                break;
-            case LLUVIA:
-                path=path+"lluvia.jpg";
-                break;
-            case SOLEADONUBE:
-                path=path+"soleadonube.jpg";
-                break;
-            case TORMENTA:
-                path=path+"tormenta.png";
-                break;
+        if(valor<=600){
+            path=path+"tormenta.png";
+        }else if(valor > 600 && valor <=700){
+            path=path+"lluvia.jpg";
+        }else if(valor > 700 && valor <=850){
+            path=path+"soleadonube.jpg";
+        }else if(valor > 850){
+            path=path+"soleado.jpg";
         }
         File f=new File(path);
         Image imagen=new Image(f.toURI().toString());
